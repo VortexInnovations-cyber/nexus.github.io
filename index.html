@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusOS | Quantum </title>
+    <title>GhostLink</title>
     <script src="https://cdn.jsdelivr.net/gh/Destroyed12121/Staticsj@main/JS/scramjet.all.js" defer></script>
     <script type="module">
         import * as BareMux from "https://cdn.jsdelivr.net/npm/@mercuryworkshop/bare-mux/dist/index.mjs";
@@ -12,21 +12,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --bg: #1f2229;
-            --sidebar-bg: #16181d;
-            --accent: #00e5ff;
-            --accent-glow: rgba(0, 229, 255, 0.28);
+            --bg: #000000;
+            --sidebar-bg: var(--bg);
+            --accent: #6ecbff;
+            --accent-glow: rgba(110, 203, 255, 0.3);
             --text-primary: #ffffff;
-            --text-dim: rgba(255, 255, 255, 0.55);
-            --border: rgba(255, 255, 255, 0.08);
-            --font: 'Inter', 'JetBrains Mono', sans-serif;
-            --card-bg: rgba(8, 10, 24, 0.75);
-            --input-bg: rgba(22, 24, 29, 0.95);
+            --text-dim: #94a3b8;
+            --border: rgba(110, 203, 255, 0.08);
+            --font: 'Courier New', monospace;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --input-bg: rgba(255, 255, 255, 0.05);
             --bg-image: none;
             --bg-blur: 0px;
             --bg-brightness: 100%;
-            --nexus-purple: #8c5cf6;
-            --nexus-green: #10f58a;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -700,174 +698,6 @@
         }
         /* --- END STANDALONE LAYOUT OVERRIDES --- */
 
-        
-        /* =========================================================
-           NEXUSOS QUANTUM VISUAL LAYER
-           Visual-only changes: proxy engine/transport logic below
-           remains untouched.
-           ========================================================= */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
-
-        body {
-            background:
-                radial-gradient(circle at 15% 20%, rgba(0,229,255,.13), transparent 34%),
-                radial-gradient(circle at 85% 78%, rgba(140,92,246,.14), transparent 38%),
-                linear-gradient(145deg, #141629 0%, #05060a 45%, #02030a 100%);
-            font-family: "Inter", sans-serif;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -1;
-            opacity: .13;
-            background-image:
-                linear-gradient(rgba(0,229,255,.16) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,229,255,.10) 1px, transparent 1px);
-            background-size: 90px 90px;
-            mask-image: linear-gradient(to bottom, black, transparent 92%);
-        }
-
-        .browser-container {
-            background: #1f2229;
-            box-shadow: 0 25px 70px rgba(0,0,0,.55);
-        }
-
-        .browser-tabs {
-            background: #16181d;
-            border-bottom: 1px solid rgba(255,255,255,.08);
-            padding: 8px 10px 0;
-            gap: 3px;
-        }
-
-        .tab {
-            height: 38px;
-            max-width: 190px;
-            padding: 0 12px;
-            background: transparent;
-            border: none;
-            border-radius: 10px 10px 0 0;
-            color: rgba(255,255,255,.5);
-            font-family: "Inter", sans-serif;
-        }
-
-        .tab:hover {
-            background: rgba(255,255,255,.04);
-            border-color: transparent;
-        }
-
-        .tab.active {
-            background: #242731;
-            border-color: transparent;
-            border-bottom-color: #242731;
-            color: #fff;
-            box-shadow: inset 0 2px 0 rgba(0,229,255,.75);
-        }
-
-        .tab.active .tab-title {
-            color: #fff;
-            text-shadow: none;
-        }
-
-        .tab-close {
-            font-size: 13px;
-        }
-
-        .new-tab {
-            border: none;
-            border-radius: 50%;
-            background: transparent;
-            width: 30px;
-            height: 30px;
-            margin-bottom: 4px;
-        }
-
-        .new-tab:hover {
-            background: rgba(255,255,255,.08);
-            border-color: transparent;
-            box-shadow: none;
-            color: #fff;
-        }
-
-        .proxy-nav {
-            background: #242731;
-            border-bottom: 1px solid rgba(255,255,255,.08);
-            padding: 9px 12px;
-            gap: 7px;
-        }
-
-        .proxy-nav button {
-            width: 32px;
-            height: 32px;
-            border: none;
-            border-radius: 8px;
-            color: rgba(255,255,255,.45);
-            background: transparent;
-        }
-
-        .proxy-nav button:hover {
-            color: #fff;
-            border-color: transparent;
-            background: rgba(255,255,255,.06);
-            box-shadow: none;
-        }
-
-        input.bar {
-            height: 38px;
-            padding-left: 18px;
-            border: 1px solid rgba(255,255,255,.06);
-            border-radius: 999px;
-            background: #16181d;
-            font-family: "Inter", sans-serif;
-            font-size: .9rem;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.025);
-        }
-
-        input.bar:focus {
-            border-color: rgba(0,229,255,.5);
-            background: #121419;
-            box-shadow: 0 0 0 2px rgba(0,229,255,.08);
-        }
-
-        #home-btn-nav:hover { color: #00e5ff; }
-
-        .loading-bar {
-            background: linear-gradient(90deg, #00e5ff, #8c5cf6);
-            box-shadow: 0 0 10px rgba(0,229,255,.35);
-        }
-
-        .iframe-container {
-            background: #05060a;
-        }
-
-        .message-container {
-            background: rgba(5,6,10,.86);
-            backdrop-filter: blur(22px);
-        }
-
-        .message-content,
-        .proxy-wisp-card {
-            background:
-                radial-gradient(circle at top left, rgba(255,255,255,.08), transparent 55%),
-                rgba(8,10,24,.82);
-            border-color: rgba(0,229,255,.5);
-            border-radius: 20px;
-            box-shadow: 0 26px 55px rgba(0,0,0,.55), 0 0 30px rgba(0,229,255,.16);
-        }
-
-        .message-content h1,
-        .proxy-wisp-header h2 {
-            color: #00e5ff;
-            text-shadow: 0 0 12px rgba(0,229,255,.25);
-        }
-
-        .wisp-option:hover,
-        .wisp-option.active {
-            background: rgba(255,255,255,.045);
-        }
-
     </style>
 </head>
 <body>
@@ -904,19 +734,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>New Tab | NexusOS</title>
+  <title>New Tab | GhostLink</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --bg:            var(--nt-bg,             #1f2229);
-      --accent:        var(--nt-accent,         #00e5ff);
-      --accent-glow:   var(--nt-accent-glow,    rgba(0, 229, 255, 0.28));
+      --bg:            var(--nt-bg,             #000000);
+      --accent:        var(--nt-accent,         #6ecbff);
+      --accent-glow:   var(--nt-accent-glow,    rgba(110, 203, 255, 0.3));
       --text-primary:  var(--nt-text-primary,   #ffffff);
-      --text-dim:     var(--nt-text-dim,        rgba(255,255,255,.55));
-      --border:       var(--nt-border,          rgba(255,255,255,.08));
-      --card-bg:      var(--nt-card-bg,         rgba(8,10,24,.75));
-      --input-bg:     var(--nt-input-bg,        rgba(22,24,29,.95));
-      --font:         var(--nt-font,            'Inter', sans-serif);
+      --text-dim:      var(--nt-text-dim,       #94a3b8);
+      --border:        var(--nt-border,         rgba(110, 203, 255, 0.08));
+      --card-bg:       var(--nt-card-bg,        rgba(255, 255, 255, 0.03));
+      --input-bg:      var(--nt-input-bg,       rgba(255, 255, 255, 0.05));
+      --font:          var(--nt-font,           'Courier New', monospace);
       --bg-image:      var(--nt-bg-image,       none);
       --bg-blur:       var(--nt-bg-blur,        0px);
       --bg-brightness: var(--nt-bg-brightness,  100%);
@@ -931,27 +761,13 @@
       display: flex;
       height: 100vh;
       overflow: hidden;
-      background:
-        radial-gradient(circle at 15% 20%, rgba(0,229,255,.14), transparent 36%),
-        radial-gradient(circle at 85% 78%, rgba(140,92,246,.16), transparent 40%),
-        linear-gradient(145deg,#141629 0%,#05060a 48%,#02030a 100%);
+      background-color: var(--bg);
       font-family: var(--font);
       color: var(--text-primary);
       position: relative;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-    }
-    body::after {
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      opacity:.13;
-      background-image:
-        linear-gradient(rgba(0,229,255,.16) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(0,229,255,.10) 1px,transparent 1px);
-      background-size:90px 90px;
     }
     body::before {
       content: "";
@@ -1288,7 +1104,7 @@
   <div class="content">
     <div class="hero-block">
       <div class="gl-logo">◈</div>
-      <h1 class="gl-title">NexusQuantum</h1>
+      <h1 class="gl-title">GhostLink</h1>
     </div>
     <form class="search-wrap" id="searchForm">
       <div class="search-box">
@@ -2339,7 +2155,7 @@
                             animation:spin 0.8s linear infinite;">
                         </div>
                         <div style="font-size:0.65rem; letter-spacing:3px; text-transform:uppercase; color:var(--accent); margin-bottom:20px; text-shadow:0 0 8px var(--accent-glow);">
-                            NexusQuamtum PROXY
+                            GHOSTLINK PROXY
                         </div>
                         <div style="display:flex; flex-direction:column; gap:10px; text-align:left;">
                             ${_piSteps.map(s => `
